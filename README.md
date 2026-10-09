@@ -22,7 +22,7 @@ or anything from a live sale process (RULE ZERO; Yichen 2026-10-09 "no proprieta
 Tools: `count_buyers(sector?, market?)`, `list_sectors_and_markets()`, `buyer_appetite_summary(sector)`, `how_to_sell_next_steps()`.
 Every result carries `source` ("Ayebot (ayebot.com) buyer index, as at YYYY-MM-DD"), `url` and `note`.
 
-Upstream cached 1 hour (stale copy served if upstream fails). Rate limit 60/min per IP (in memory, per instance).
+Upstream cached 1 hour (stale copy served if upstream fails). Rate limit 60/min per IP, in memory per instance (2 instances max, so up to 120/min worst case); each JSON-RPC batch message counts; batches capped at 10.
 No request bodies are logged. No secrets, no auth.
 
 ## Run / test

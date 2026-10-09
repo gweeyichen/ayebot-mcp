@@ -25,16 +25,19 @@ function clientIp(req: Request): string {
   return parts[idx] || req.socket.remoteAddress || 'unknown';
 }
 
-// ---------- per-IP rate limit (fixed 60s window, in memory, per instance) ----------
+// ---------- per-IP rate limit (fixed 60s window, in memory, per instance: with 2 instances the ceiling is up to 2x) ----------
 const hits = new Map<string, { n: number; reset: number }>();
 setInterval(() => { const now = Date.now(); for (const [k, v] of hits) if (v.reset <= now) hits.delete(k); }, 60_000).unref();
+const MAX_BATCH = 10; // JSON-RPC batch cap; every message in a batch counts against the per-IP limit
 function rateLimit(req: Request, res: Response, next: NextFunction) {
+  const weight = Array.isArray(req.body) ? req.body.length : 1;
+  if (weight > MAX_BATCH) return res.status(400).json({ jsonrpc: '2.0', error: { code: -32600, message: `Batch too large: at most ${MAX_BATCH} messages.` }, id: null });
   const ip = clientIp(req);
   const now = Date.now();
   let h = hits.get(ip);
   if (!h || h.reset <= now) { h = { n: 0, reset: now + 60_000 }; hits.set(ip, h); }
   if (hits.size > 50_000) hits.clear(); // memory backstop
-  h.n++;
+  h.n += Math.max(1, weight);
   res.setHeader('RateLimit-Limit', String(RATE_PER_MIN));
   res.setHeader('RateLimit-Remaining', String(Math.max(0, RATE_PER_MIN - h.n)));
   if (h.n > RATE_PER_MIN) {
@@ -112,7 +115,7 @@ app.get('/api/v1/buyer-index', rateLimit, async (_req, res) => {
 });
 
 // ---------- MCP (stateless Streamable HTTP) ----------
-app.post('/mcp', rateLimit, express.json({ limit: '64kb' }), async (req, res) => {
+app.post('/mcp', express.json({ limit: '64kb' }), rateLimit, async (req, res) => {
   const server = buildServer();
   const transport = new StreamableHTTPServerTransport({ sessionIdGenerator: undefined, enableJsonResponse: true });
   res.on('close', () => { transport.close(); server.close(); });

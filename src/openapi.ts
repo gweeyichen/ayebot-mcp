@@ -11,7 +11,7 @@ export function openapi(base: string) {
       description:
         'Free, read-only, aggregate counts of acquirers on the Ayebot buyer register by sector and Southeast Asian market. ' +
         'Aggregate counts only; no buyer names or records, no contacts, no ticket sizes, no valuation figures, and no figure from any live sale process. ' +
-        'Attribution to ayebot.com is requested. Rate limit: 60 requests per minute per IP. Docs: https://ayebot.com/developers',
+        'Attribution to ayebot.com is requested. Rate limit: about 60 requests per minute per IP (each message in a JSON-RPC batch counts; batches of at most 10). Docs: https://ayebot.com/developers',
       termsOfService: 'https://ayebot.com/developers#terms',
       contact: { name: 'Ayebot', url: 'https://ayebot.com/developers' },
     },
