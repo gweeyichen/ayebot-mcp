@@ -177,7 +177,7 @@ export function buildServer(): McpServer {
         { step: 'Check how ready your business is', url: SITE + '/readiness', detail: 'Readiness check: twelve questions, about two minutes, built on what buyers test in due diligence. No email needed to see the result.' },
         { step: 'Understand how an indicative valuation range is worked out', url: SITE + '/how-it-works', detail: 'How Ayebot works, including the valuation range tool. An indicative range is not a valuation.' },
         { step: 'See what is free', url: SITE + '/free', detail: 'Ayebot\'s tools are free, need no account and show a result without an email. A sale mandate is not free; fees are agreed per engagement.' },
-        { step: 'Common questions', url: SITE + '/faq', detail: 'FAQ about selling a company and how Ayebot works.' },
+        { step: 'Common questions', url: SITE + '/faq', detail: 'Questions founders ask: whether Ayebot is free, who runs it, and whether an enquiry is confidential.' },
         { step: 'Talk to an adviser', url: 'https://gacapital.com.sg/how-we-work', detail: 'Advice on any sale comes from the Growth Alliance Capital team, never from software.' },
       ],
       ...attribution(d, SITE + '/how-it-works'),
