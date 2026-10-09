@@ -1,0 +1,14 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.gweeyichen/ayebot",
+  "title": "Ayebot buyer index",
+  "description": "Counts of acquirers by sector and Southeast Asian market, from ayebot.com. Aggregate only, no names.",
+  "version": "1.0.0",
+  "websiteUrl": "https://ayebot.com/developers",
+  "icons": [
+    { "src": "https://ayebot.com/icon-512.png", "mimeType": "image/png", "sizes": ["512x512"] }
+  ],
+  "remotes": [
+    { "type": "streamable-http", "url": "https://ayebot.com/mcp" }
+  ]
+}

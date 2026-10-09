@@ -1,0 +1,29 @@
+{
+  "name": "ayebot-mcp",
+  "version": "1.0.0",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/server.js",
+    "dev": "tsc -p tsconfig.json && node dist/server.js",
+    "test:client": "node scripts/mcp-client-test.mjs"
+  },
+  "license": "UNLICENSED",
+  "description": "Public read-only MCP server and JSON API for Ayebot's aggregate buyer index (counts only, no names).",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.1",
+    "express": "^5.2.1",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.6.4",
+    "typescript": "^7.0.2"
+  },
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "homepage": "https://ayebot.com/developers"
+}
