@@ -2,3 +2,12 @@ node_modules
 dist
 *.log
 .env*
+# devkit
+.devkit/baseline.json
+.devkit/mutation.json
+.devkit/crashes
+.devkit/ledger.jsonl
+.devkit/state.json
+.devkit/unlock
+.devkit/flows-report.json
+.claude/worktrees/

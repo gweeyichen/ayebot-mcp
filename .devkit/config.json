@@ -1,0 +1,18 @@
+{
+  "_doc": "devkit config. Human-owned (Claude cannot edit .devkit/). Keys: check, check_timeout, fast, format, protected_extra, test_globs_extra, max_stop_blocks. Gate-config changes need `devkit approve` in a terminal. See ~/projects/devkit/README.md",
+  "check": "./check.sh",
+  "check_timeout": 600,
+  "format": {
+    ".ts": "npx --no-install prettier --write {file}",
+    ".tsx": "npx --no-install prettier --write {file}",
+    ".js": "npx --no-install prettier --write {file}",
+    ".py": "ruff format {file}"
+  },
+  "fast": {
+    ".py": "python3 -m py_compile {file}"
+  },
+  "protected_extra": [],
+  "max_stop_blocks": 4,
+  "plan_gate": "active-only",
+  "stop_gate": true
+}
