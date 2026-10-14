@@ -66,5 +66,21 @@
       "Bash(npm publish:*)",
       "Bash(git push --force:*)"
     ]
+  },
+  "sandbox": {
+    "enabled": true,
+    "network": {
+      "allowedDomains": [
+        "github.com",
+        "*.github.com",
+        "*.githubusercontent.com",
+        "registry.npmjs.org",
+        "*.npmjs.org",
+        "pypi.org",
+        "files.pythonhosted.org",
+        "localhost",
+        "127.0.0.1"
+      ]
+    }
   }
 }
