@@ -13,7 +13,7 @@ export function openapi(base: string) {
         'Aggregate counts only; no buyer names or records, no contacts, no ticket sizes, no valuation figures, and no figure from any live sale process. ' +
         'Attribution to ayebot.com is requested. Rate limit: about 60 requests per minute per IP (each message in a JSON-RPC batch counts; batches of at most 10). Docs: https://ayebot.com/developers',
       termsOfService: 'https://ayebot.com/developers#terms',
-      contact: { name: 'Ayebot', url: 'https://ayebot.com/developers' },
+      contact: { name: 'Ayebot', url: 'https://ayebot.com/developers', email: 'hi@ayebot.com' },
     },
     servers: [{ url: base }],
     paths: {
