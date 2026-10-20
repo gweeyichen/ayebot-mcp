@@ -33,7 +33,7 @@ node scripts/mcp-client-test.mjs http://localhost:8787/mcp     # initialize, too
 
 ## Deploy (Cloud Run, project gen-lang-client-0056938973, us-west1)
 ```
-python3 ~/dealbrain/automation/confidential_guard.py src scripts README.md   # must exit 0
+python3 "$CONFIDENTIAL_GUARD" src scripts README.md   # local confidentiality guard (path in your shell env), must exit 0
 SHA=$(git rev-parse --short HEAD)
 gcloud builds submit --project gen-lang-client-0056938973 --tag gcr.io/gen-lang-client-0056938973/ayebot-mcp:$SHA .
 gcloud run deploy ayebot-mcp --project gen-lang-client-0056938973 --region us-west1 \
