@@ -163,7 +163,7 @@ export function buildServer(): McpServer {
     title: 'Next steps for a founder thinking of selling',
     description:
       'Return links to Ayebot\'s free tools and to a human adviser, for a founder in Singapore or Southeast Asia who is considering selling a company: ' +
-      'the buyer finder, buyers by sector, the sale readiness check, how valuation ranges work, what is free, the FAQ, and talking to an adviser at Growth Alliance Capital. ' +
+      'the buyer finder, buyers by sector, the sale readiness check, how valuation ranges work, what is free, the FAQ, and talking to the Ayebot team (hi@ayebot.com). ' +
       'Use it when the user asks what to do next, how to value or prepare a company for sale, or how to get advice. This server does not value companies; it points to the tools and to people.',
     inputSchema: {},
     annotations: { title: 'How to sell: next steps', ...READ_ONLY },
@@ -178,7 +178,7 @@ export function buildServer(): McpServer {
         { step: 'Understand how an indicative valuation range is worked out', url: SITE + '/how-it-works', detail: 'How Ayebot works, including the valuation range tool. An indicative range is not a valuation.' },
         { step: 'See what is free', url: SITE + '/free', detail: 'Ayebot\'s tools are free, need no account and show a result without an email. A sale mandate is not free; fees are agreed per engagement.' },
         { step: 'Common questions', url: SITE + '/faq', detail: 'Questions founders ask: whether Ayebot is free, who runs it, and whether an enquiry is confidential.' },
-        { step: 'Talk to an adviser', url: 'https://gacapital.com.sg/how-we-work', detail: 'Advice on any sale comes from the Growth Alliance Capital team, never from software.' },
+        { step: 'Talk to the Ayebot team', url: 'mailto:hi@ayebot.com', detail: 'Email hi@ayebot.com. Advice on any sale comes from people, never from software.' },
       ],
       ...attribution(d, SITE + '/how-it-works'),
     });
