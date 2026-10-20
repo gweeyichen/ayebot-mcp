@@ -1,6 +1,6 @@
 // Ayebot buyer index: fetch, WHITELIST-filter, cache.
 //
-// RULE ZERO (GA Capital, 2026-10-02) + Yichen 2026-10-09 ("you can't give the names out right? No proprietary"):
+// RULE ZERO (2026-10-02) + maintainer ruling 2026-10-09 ("you can't give the names out right? No proprietary"):
 // this service exposes ONLY aggregate counts from the public file https://ayebot.com/data/buyer-index.json.
 // Never names, contacts, ticket sizes, individual records, valuation benchmarks or HQ-derived figures.
 // The filter below is a whitelist: any field not named here is dropped, and any non-integer count fails closed.
